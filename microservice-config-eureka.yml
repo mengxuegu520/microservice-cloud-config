@@ -1,0 +1,44 @@
+﻿#注意：如果在记事本上编写，下面的缩进不要使用Tab来缩进，不然报错
+spring:
+  profiles:
+    actice: dev #激活开发环境配置
+---
+server:
+  port: 6001 #端口号
+spring:
+  profiles: dev #开发环境
+  application:
+    name: microservice-config-eureka
+
+
+eureka:
+  instance:
+    hostname: eureka6001.com # eureka服务端的实例名称
+  client:
+    registerWithEureka: false # 服务注册，false表示不将自已注册到Eureka服务中
+    fetchRegistry: false # 服务发现，false表示自己不从Eureka服务中获取注册信息
+    serviceUrl: # Eureka客户端与Eureka服务端的交互地址，集群版配置对方的地址，单机版配置自 己（如果不配置则默认本机8761端口）
+      defaultZone: http://eureka6001.com:6001/eureka/
+  server:
+    enable-self-preservation: false #禁止自我保护机制
+---
+server:
+  port: 6001 #端口号
+spring:
+  profiles: prod #生产环境
+  application:
+    name: microservice-config-eureka
+
+
+eureka:
+  instance:
+    hostname: eureka6001.com  #eureka服务端的实例名称
+  client:
+    registerWithEureka: false # 服务注册，false表示不将自已注册到Eureka服务中
+    fetchRegistry: false # 服务发现，false表示自己不从Eureka服务中获取注册信息
+    serviceUrl: # Eureka客户端与Eureka服务端的交互地址，集群版配置对方的地址，单机版配置自 己（如果不配置则默认本机8761端口）
+      defaultZone: http://eureka6001.com:6001/eureka/
+  server:
+    enable-self-preservation: true #禁止自我保护机制
+
+#保存时注意，选择 UTF-8 保存
