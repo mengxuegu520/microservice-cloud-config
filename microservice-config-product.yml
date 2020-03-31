@@ -4,7 +4,7 @@ spring:
     active: dev  # 激活开发环境配置
 ---
 server:
-  port: 8002
+  port: 8888
 mybatis:
   config-locations: classpath:mybatis/mybatis.cfg.xml
   type-aliases-package: com.mengxuegu.springcloud.entities
